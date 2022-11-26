@@ -1,42 +1,13 @@
-<img src="src/assets/img/icon-128.png" width="64"/>
+# Chrome Extension Quick PR Review Batch
 
-# Chrome Extension Boilerplate with React 17 and Webpack 5
+## skills
 
-[![npm](https://img.shields.io/npm/v/chrome-extension-boilerplate-react)](https://www.npmjs.com/package/chrome-extension-boilerplate-react)
-[![npm-download](https://img.shields.io/npm/dw/chrome-extension-boilerplate-react)](https://www.npmjs.com/package/chrome-extension-boilerplate-react)
-[![npm](https://img.shields.io/npm/dm/chrome-extension-boilerplate-react)](https://www.npmjs.com/package/chrome-extension-boilerplate-react)
+- [React](https://beta.reactjs.org/)
+    -  Javascript library
+- [Mantine ui](https://beta.reactjs.org/)
+    -  A fully featured React components library
 
-[![dependencies Status](https://david-dm.org/lxieyang/chrome-extension-boilerplate-react/status.svg)](https://david-dm.org/lxieyang/chrome-extension-boilerplate-react)
-[![devDependencies Status](https://david-dm.org/lxieyang/chrome-extension-boilerplate-react/dev-status.svg)](https://david-dm.org/lxieyang/chrome-extension-boilerplate-react?type=dev)
-
-## Announcements
-
-- **_This boilerplate adopts [Manifest V3](https://developer.chrome.com/docs/extensions/mv3/intro/mv3-overview/)!_** For V2 users, please check out the [manifest-v2](https://github.com/lxieyang/chrome-extension-boilerplate-react/tree/manifest-v2) branch, or use version [3.x](https://www.npmjs.com/package/chrome-extension-boilerplate-react/v/3.3.0).
-  - Check out the [Manifest V3 Migration Guide](https://developer.chrome.com/docs/extensions/mv3/intro/mv3-migration/).
-- Recently added [devtools](https://developer.chrome.com/docs/extensions/mv3/devtools/) Support! Thanks [GeekaholicLin](https://github.com/lxieyang/chrome-extension-boilerplate-react/issues/17)!
-- Recently updated from **[React](https://reactjs.org)** ~~16~~ to **17**!
-- Recently updated from **[Webpack Dev Server](https://webpack.js.org/configuration/dev-server/)** ~~3.x~~ to **4.x** and **[Webpack](https://webpack.js.org/)** ~~4~~ to **5**!
-- Recently added [TypeScript](https://www.typescriptlang.org/) Support!
-
-## Features
-
-This is a basic Chrome Extensions boilerplate to help you write modular and modern Javascript code, load CSS easily and [automatic reload the browser on code changes](https://webpack.github.io/docs/webpack-dev-server.html#automatic-refresh).
-
-This boilerplate is updated with:
-
-- [Chrome Extension Manifest V3](https://developer.chrome.com/docs/extensions/mv3/intro/mv3-overview/)
-- [React 17](https://reactjs.org)
-- [Webpack 5](https://webpack.js.org/)
-- [Webpack Dev Server 4](https://webpack.js.org/configuration/dev-server/)
-- [React Hot Loader](https://github.com/gaearon/react-hot-loader)
-- [eslint-config-react-app](https://www.npmjs.com/package/eslint-config-react-app)
-- [Prettier](https://prettier.io/)
-- [TypeScript](https://www.typescriptlang.org/)
-
-This boilerplate is heavily inspired by and adapted from [https://github.com/samuelsimoes/chrome-extension-webpack-boilerplate](https://github.com/samuelsimoes/chrome-extension-webpack-boilerplate), with additional support for React 17 features, Webpack 5, and Webpack Dev Server 4.
-
-Please open up an issue to nudge me to keep the npm packages up-to-date. FYI, it takes time to make different packages with different versions work together nicely.
-
+-------
 ## Installing and Running
 
 ### Procedures:
@@ -48,104 +19,108 @@ Please open up an issue to nudge me to keep the npm packages up-to-date. FYI, it
 5. Run `npm install` to install the dependencies.
 6. Run `npm start`
 7. Load your extension on Chrome following:
-   1. Access `chrome://extensions/`
-   2. Check `Developer mode`
-   3. Click on `Load unpacked extension`
-   4. Select the `build` folder.
+    1. Access `chrome://extensions/`
+    2. Check `Developer mode`
+    3. Click on `Load unpacked extension`
+    4. Select the `build` folder.
 8. Happy hacking.
 
-## Structure
+Now, the content of build folder will be the extension ready to be submitted to the Chrome Web Store. Just take a look at the official guide to more infos about publishing.
 
-All your extension's code must be placed in the `src` folder.
+-------
 
-The boilerplate is already prepared to have a popup, an options page, a background page, and a new tab page (which replaces the new tab page of your browser). But feel free to customize these.
+## How To Use
 
-## TypeScript
+## Using the LGTM Button
+### Once you have installed the extension, please fix the extension
 
-This boilerplate now supports TypeScript! The `Options` Page is implemented using TypeScript. Please refer to `src/pages/Options/` for example usages.
+#### 1. Open Chrome and click the button next to the search bar
 
-## Webpack auto-reload and HRM
+#### 2. A pop-up will appear, select the button on the pin for this extension
 
-To make your workflow much more efficient this boilerplate uses the [webpack server](https://webpack.github.io/docs/webpack-dev-server.html) to development (started with `npm start`) with auto reload feature that reloads the browser automatically every time that you save some file in your editor.
+#### 3. To use, click the icon to display the popup
 
-You can run the dev mode on other port if you want. Just specify the env var `port` like this:
+### Two buttons are provided
 
-```
-$ PORT=6002 npm run start
-```
+#### 1. Manual for LGTM
 
-## Content Scripts
+     LGTM images selected by the developer of this extension will be copied to your clipboard.
 
-Although this boilerplate uses the webpack dev server, it's also prepared to write all your bundles files on the disk at every code change, so you can point, on your extension manifest, to your bundles that you want to use as [content scripts](https://developer.chrome.com/extensions/content_scripts), but you need to exclude these entry points from hot reloading [(why?)](https://github.com/samuelsimoes/chrome-extension-webpack-boilerplate/issues/4#issuecomment-261788690). To do so you need to expose which entry points are content scripts on the `webpack.config.js` using the `chromeExtensionBoilerplate -> notHotReload` config. Look the example below.
+#### 2. Random for LGTM
 
-Let's say that you want use the `myContentScript` entry point as content script, so on your `webpack.config.js` you will configure the entry point and exclude it from hot reloading, like this:
+    Randomly retrieve LGTM images from the Internet. In some cases, you may get hits that are not appropriate
 
-```js
-{
-  …
-  entry: {
-    myContentScript: "./src/js/myContentScript.js"
-  },
-  chromeExtensionBoilerplate: {
-    notHotReload: ["myContentScript"]
-  }
-  …
-}
-```
+------
 
-and on your `src/manifest.json`:
+### How To use
+    It is very easy to use. We pursued simplicity. Save your review time!
 
-```json
-{
-  "content_scripts": [
-    {
-      "matches": ["https://www.google.com/*"],
-      "js": ["myContentScript.bundle.js"]
-    }
-  ]
-}
-```
+#### 1. Please click on the respective buttons.
 
-## Intelligent Code Completion
+#### 2. It is already copied to your clipboard. All you have to do is paste it 🎉
 
-Thanks to [@hudidit](https://github.com/lxieyang/chrome-extension-boilerplate-react/issues/4)'s kind suggestions, this boilerplate supports chrome-specific intelligent code completion using [@types/chrome](https://www.npmjs.com/package/@types/chrome).
+````
+Putting up LGTM images will facilitate communication with your peers.
+I feel that an LGTM with an image is somewhat more pleasing than an LGTM with text!
+````
 
-## Packing
+## Using the Copy and REVIEW the Batch
 
-After the development of your extension run the command
+### Once you have installed the extension, please fix the extension
 
-```
-$ NODE_ENV=production npm run build
-```
+#### 1. Open Chrome and click the button next to the search bar
 
-Now, the content of `build` folder will be the extension ready to be submitted to the Chrome Web Store. Just take a look at the [official guide](https://developer.chrome.com/webstore/publish) to more infos about publishing.
+#### 2. A pop-up will appear, select the button on the pin for this extension
 
-## Secrets
+#### 3. To use, click the icon to display the popup
 
-If you are developing an extension that talks with some API you probably are using different keys for testing and production. Is a good practice you not commit your secret keys and expose to anyone that have access to the repository.
+## Six batch are provided
 
-To this task this boilerplate import the file `./secrets.<THE-NODE_ENV>.js` on your modules through the module named as `secrets`, so you can do things like this:
+### 1. review must
 
-_./secrets.development.js_
+Used to inform the reviewee of elements that must be corrected.
 
-```js
-export default { key: '123' };
-```
+### 2. review imo
 
-_./src/popup.js_
+Abbreviation for in my opinion.
 
-```js
-import secrets from 'secrets';
-ApiCall({ key: secrets.key });
-```
+Use it to tell the reviewee that something needs to be corrected in your opinion.
 
-:point_right: The files with name `secrets.*.js` already are ignored on the repository.
+### 3. review ask
 
-## Resources:
+Use it when you want to ask a reviewee a question
 
-- [Webpack documentation](https://webpack.js.org/concepts/)
-- [Chrome Extension documentation](https://developer.chrome.com/extensions/getstarted)
+### 4. review nits
 
----
+Used to tell the reviewee that minor corrections are needed
 
-Michael Xieyang Liu | [Website](https://lxieyang.github.io)
+### 5. review learn
+
+Use it to tell the reviewee that the implementation was a learning experience for you.
+
+### 6. review nice
+
+Used to tell the reviewee when the implementation was very good.
+
+### How To use
+    It is very easy to use. We pursued simplicity. Save your review time!
+
+#### 1. Please click on the review buttons.
+
+#### 2. It is already copied to your clipboard. All you have to do is paste it 🎉
+
+````
+Utilizing the REVIEW batch is more of a tell-tale factor to the implementer.
+````
+
+## Contributors ✨
+
+Thanks goes to these wonderful people
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td><a href="https://twitter.com/haru1125632"><img src="https://github.com/kawabata324/PR_Review_Batch/blob/master/src/assets/img/usa.jpg" width="100px;" alt=""/><br /><sub><b>Kawabata</b></sub></a><br />
+</table>
