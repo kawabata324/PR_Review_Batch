@@ -1,27 +1,70 @@
 import React from 'react';
-import logo from '../../assets/img/logo.svg';
-import Greetings from '../../containers/Greetings/Greetings';
-import './Popup.css';
+import {Blockquote, Image, SimpleGrid, Center, Flex} from '@mantine/core';
+import {IconFlame} from '@tabler/icons';
 
 const Popup = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/pages/Popup/Popup.jsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React!
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <Center>
+                <Flex
+                    gap="md"
+                    direction="column"
+                    align="center"
+                >
+                    <Blockquote
+                        cite="– 'reviewer' and 'reviewee' should REVIEW with gratitude!"
+                        icon={<IconFlame size={24}/>}
+                    >
+                        We thank each other
+                    </Blockquote>
+                    <SimpleGrid cols={2} pt={10}>
+                        <Image
+                            radius="sm"
+                            src="https://img.shields.io/badge/review-must-red.svg"
+                            alt="実装者に対して必須で直して欲しい時につけるバッチ"
+                            width={100}
+                            height={20}
+                        />
+                        <Image
+                            radius="sm"
+                            src="https://img.shields.io/badge/review-imo-orange.svg"
+                            alt="実装者に対して個人的に直して欲しい時につけるバッチ"
+                            width={100}
+                            height={20}
+                        />
+                        <Image
+                            radius="sm"
+                            src="https://img.shields.io/badge/review-ask-blue.svg"
+                            alt="実装者に対して質問したい時につけるバッチ"
+                            width={100}
+                            height={20}
+                        />
+                        <Image
+                            radius="sm"
+                            src="https://img.shields.io/badge/review-nits-green.svg"
+                            alt="実装者に対して細かな指摘をしたいときにつけるバッチ"
+                            width={100}
+                            height={20}
+                        />
+                        <Image
+                            radius="sm"
+                            src="https://img.shields.io/badge/review-learn-success"
+                            alt="実装者から学びに実装を見た時につけるバッチ"
+                            width={100}
+                            height={20}
+                        />
+                        <Image
+                            radius="sm"
+                            src="https://img.shields.io/badge/review-nice-success"
+                            alt="実装者の良い実装を見た時につけるバッチ"
+                            width={100}
+                            height={20}
+                        />
+                    </SimpleGrid>
+                </Flex>
+            </Center>
+        </div>
+    );
 };
 
 export default Popup;
