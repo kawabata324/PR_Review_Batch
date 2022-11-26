@@ -113,13 +113,8 @@ Used to tell the reviewee when the implementation was very good.
 Utilizing the REVIEW batch is more of a tell-tale factor to the implementer.
 ````
 
-## Contributors ✨
+## Created by ✨
 
-Thanks goes to these wonderful people
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
 <table>
   <tr>
     <td><a href="https://twitter.com/haru1125632"><img src="https://github.com/kawabata324/PR_Review_Batch/blob/master/src/assets/img/usa.jpg" width="100px;" alt=""/><br /><sub><b>Kawabata</b></sub></a><br />
