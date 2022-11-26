@@ -1,11 +1,11 @@
 {
-  "name": "chrome-extension-boilerplate-react",
+  "name": "Quick PR Review Batch",
   "version": "4.4.0",
-  "description": "A chrome extension boilerplate built with React 17, Webpack 5, and Webpack Dev Server 4",
+  "description": "A chrome extension. If you are a reviewer of a pull request, help us do a review on Git Hub. Having that batch is very useful for both reviewers and developers!",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lxieyang/chrome-extension-boilerplate-react.git"
+    "url": "https://github.com/kawabata324/PR_Review_Batch.git"
   },
   "scripts": {
     "build": "node utils/build.js",
